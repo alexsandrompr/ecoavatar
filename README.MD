@@ -28,7 +28,7 @@ Arquitetura de baixo custo inicial e escalável
 
 
 🛠️ Tecnologias utilizadas
-HTML5Estrutura semântica das páginas
+HTML5 Estrutura semântica das páginas
 CSS Identidade visual, layout e responsividade
 JavaScriptInteratividade, menu mobile, FAQ e validação de formulário
 ChatbotAvatar inteligente com integração via Webchat e Telegram
