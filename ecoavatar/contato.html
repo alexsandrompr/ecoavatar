@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Entre em contato com a equipe EcoAvatar. Envie sua mensagem, dúvida ou sugestão sobre sustentabilidade e consumo consciente." />
+  <title>Contato | EcoAvatar</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO E NAVEGAÇÃO ========== -->
+  <header class="header">
+    <nav class="navbar container" aria-label="Menu principal">
+      <a class="logo" href="index.html">Eco<span>Avatar</span></a>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="integrantes.html">Integrantes</a></li>
+        <li><a href="about.html">Sobre</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a class="active" href="contato.html" aria-current="page">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+  <main class="container page">
+
+    <!-- Título da página -->
+    <section class="page-title" aria-labelledby="titulo-contato">
+      <p class="tag">Fale conosco</p>
+      <h1 id="titulo-contato">Contato</h1>
+      <p>Tem alguma dúvida, sugestão ou quer saber mais sobre o projeto? Envie uma mensagem para a equipe EcoAvatar.</p>
+    </section>
+
+    <!-- Layout: informações + formulário -->
+    <div class="contact-layout">
+
+      <!-- Informações de contato -->
+      <section class="content-card" aria-labelledby="info-contato">
+        <h2 id="info-contato">Informações</h2>
+        <p>Estamos disponíveis para responder suas mensagens o mais rápido possível. Use o formulário ao lado ou entre em contato pelos canais abaixo.</p>
+        <div class="timeline" role="list" style="margin-top: 1rem;">
+          <div role="listitem">📧 contato@ecoavatar.com</div>
+          <div role="listitem">📍 São Paulo, SP — Brasil</div>
+          <div role="listitem">🕐 Resposta em até 2 dias úteis</div>
+        </div>
+      </section>
+
+      <!-- Formulário de contato -->
+      <section aria-labelledby="form-titulo">
+        <h2 id="form-titulo" class="visually-hidden">Formulário de contato</h2>
+        <div class="contact-form" role="form" aria-label="Formulário de contato">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Seu nome completo"
+            autocomplete="name"
+            required
+          />
+
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            autocomplete="email"
+            required
+          />
+
+          <label for="mensagem">Mensagem</label>
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="5"
+            placeholder="Escreva sua mensagem aqui..."
+            required
+          ></textarea>
+
+          <button class="btn primary" type="submit">Enviar mensagem</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="footer" role="contentinfo">
+    <p>© 2026 EcoAvatar.</p>
+  </footer>
+
+  <!-- Script carregado no final para garantir que o HTML já está pronto -->
+  <script src="js/script.js"></script>
+</body>
+</html>

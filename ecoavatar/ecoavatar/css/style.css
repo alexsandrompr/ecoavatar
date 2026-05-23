@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* ==========================================================================
+   1. VARIÁVEIS GLOBAIS (Design Tokens)
+   ========================================================================== */
+/* Define as cores, sombras e bordas reutilizáveis em todo o projeto */
+:root {
+  --green-dark:  #1b5e20;
+  --green:       #2e7d32;
+  --green-light: #81c784;
+  --mint:        #eef8ef;
+  --text:        #1f2a24;
+  --muted:       #5f6f64;
+  --white:       #ffffff;
+  --shadow:      0 14px 35px rgba(27, 94, 32, 0.12);
+  --radius:      22px;
+}
+
+/* ==========================================================================
+   2. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+/* Garante que bordas e espaçamentos sejam incluídos no tamanho dos elementos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ativa rolagem suave ao clicar em âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configurações base do corpo da página */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(180deg, var(--mint), #ffffff);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. LAYOUT E CONTAINER
+   ========================================================================== */
+/* Limita a largura do conteúdo e centraliza horizontalmente */
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+/* Cabeçalho fixo no topo com fundo translúcido e desfoque */
+.header {
+  background: rgba(255, 255, 255, 0.92);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+/* Barra de navegação: alinha logo e menu lado a lado */
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo do site */
+.logo {
+  color: var(--green-dark);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* Parte do logo com cor de destaque */
+.logo span {
+  color: var(--green);
+}
+
+/* Lista de links do menu horizontal */
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+/* Links do menu com efeito hover e estado ativo */
+.nav-menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .6rem .8rem;
+  border-radius: 999px;
+  transition: .2s;
+}
+
+.nav-menu a:hover,
+.nav-menu .active {
+  background: var(--mint);
+  color: var(--green-dark);
+}
+
+/* Botão hambúrguer — visível apenas em telas pequenas */
+.menu-toggle {
+  display: none;
+  background: var(--green);
+  color: white;
+  border: 0;
+  padding: .65rem .8rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   5. SEÇÃO HERO (Banner Principal)
+   ========================================================================== */
+/* Espaçamento generoso para a seção de destaque */
+.hero {
+  padding: 6rem 0;
+}
+
+/* Layout de duas colunas: texto à esquerda, card à direita */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   6. TIPOGRAFIA
+   ========================================================================== */
+/* Etiqueta de categoria acima do título principal */
+.tag {
+  color: var(--green);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .85rem;
+  margin-bottom: .8rem;
+}
+
+/* Título principal com tamanho fluido (responsivo via clamp) */
+h1 {
+  font-size: clamp(2.1rem, 5vw, 4.4rem);
+  line-height: 1.08;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+}
+
+/* Parágrafo de apoio na hero e nos títulos de página */
+.hero-text,
+.page-title p {
+  color: var(--muted);
+  max-width: 700px;
+  font-size: 1.08rem;
+}
+
+/* ==========================================================================
+   7. BOTÕES E AÇÕES
+   ========================================================================== */
+/* Grupo de botões da hero */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Estilo base de botão (pill shape) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  transition: .2s;
+}
+
+/* Botão primário — fundo verde sólido */
+.btn.primary {
+  background: var(--green);
+  color: white;
+}
+
+/* Botão secundário — fundo branco com sombra */
+.btn.secondary {
+  background: white;
+  color: var(--green-dark);
+  box-shadow: var(--shadow);
+}
+
+/* Efeito de elevação ao passar o mouse */
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. CARDS
+   ========================================================================== */
+/* Estilo base compartilhado por todos os cards do site */
+.hero-card,
+.feature-card,
+.member-card,
+.content-card,
+.contact-form {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+/* Card da hero: centralizado com ícone grande */
+.hero-card {
+  text-align: center;
+}
+
+.hero-card .icon {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-card h2 {
+  color: var(--green-dark);
+  margin-bottom: .7rem;
+}
+
+/* ==========================================================================
+   9. SEÇÕES E GRIDS
+   ========================================================================== */
+/* Espaçamento padrão entre seções */
+.section {
+  padding: 3rem 0 5rem;
+}
+
+/* Grid de 3 colunas iguais */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Cards de funcionalidades */
+.feature-card span {
+  font-size: 2.2rem;
+}
+
+.feature-card h3 {
+  margin: 1rem 0 .5rem;
+  color: var(--green-dark);
+}
+
+/* Cor secundária para textos descritivos nos cards */
+.feature-card p,
+.content-card p,
+.member-card p,
+.faq-answer p {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   10. PÁGINAS INTERNAS
+   ========================================================================== */
+/* Espaçamento padrão para páginas internas */
+.page {
+  padding: 4rem 0;
+}
+
+/* Cabeçalho de página interna */
+.page-title {
+  margin-bottom: 2rem;
+}
+
+.page-title h1 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+}
+
+/* Grid de membros da equipe */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Card de membro da equipe */
+.member-card {
+  text-align: center;
+}
+
+/* Placeholder visual enquanto não há foto real */
+.photo-placeholder {
+  height: 180px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #e6f4ea, #c8e6c9);
+  display: grid;
+  place-items: center;
+  color: var(--green-dark);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  border: 2px dashed var(--green-light);
+}
+
+.member-card h2 {
+  color: var(--green-dark);
+  margin-bottom: .4rem;
+}
+
+/* ==========================================================================
+   11. CARDS DE CONTEÚDO (Textos / Artigos)
+   ========================================================================== */
+.content-card {
+  margin-bottom: 1.25rem;
+}
+
+.content-card h2 {
+  color: var(--green-dark);
+  margin-bottom: .8rem;
+}
+
+/* Lista com checkmarks (marcadores customizados via padding) */
+.check-list {
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+/* Linha do tempo com itens em fundo mint */
+.timeline {
+  display: grid;
+  gap: .8rem;
+  color: var(--muted);
+}
+
+.timeline div {
+  background: var(--mint);
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+/* ==========================================================================
+   12. FAQ (Perguntas Frequentes)
+   ========================================================================== */
+/* Container das perguntas */
+.faq-list {
+  display: grid;
+  gap: .8rem;
+}
+
+/* Botão clicável de cada pergunta */
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 1px solid rgba(46, 125, 50, 0.15);
+  border-radius: 18px;
+  padding: 1rem;
+  font-weight: 800;
+  color: var(--green-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* Resposta oculta por padrão, revelada com a classe .open via JS */
+.faq-answer {
+  display: none;
+  background: var(--mint);
+  margin-top: -.4rem;
+  padding: 1rem;
+  border-radius: 0 0 18px 18px;
+}
+
+.faq-answer.open {
+  display: block;
+}
+
+/* ==========================================================================
+   13. FORMULÁRIO DE CONTATO
+   ========================================================================== */
+/* Layout de duas colunas: informações + formulário */
+.contact-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Formulário com campos empilhados verticalmente */
+.contact-form {
+  display: grid;
+  gap: .7rem;
+}
+
+.contact-form label {
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+/* Campos de texto e área de mensagem */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(46, 125, 50, 0.25);
+  border-radius: 15px;
+  padding: .9rem;
+  font: inherit;
+  outline: none;
+}
+
+/* Destaque visual ao focar em um campo */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+/* Área reservada para mensagens de status do formulário */
+.form-status {
+  min-height: 1.5rem;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   14. RODAPÉ
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--green-dark);
+  color: white;
+  margin-top: 3rem;
+}
+
+/* ==========================================================================
+   15. RESPONSIVIDADE (Mobile — até 850px)
+   ========================================================================== */
+@media (max-width: 850px) {
+  /* Exibe o botão hambúrguer em telas pequenas */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Menu móvel: oculto por padrão, exibido com a classe .open via JS */
+  .nav-menu {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem 5%;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  /* Layouts de duas colunas viram coluna única no mobile */
+  .hero-content,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Grids de três colunas viram coluna única no mobile */
+  .grid-3,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduz o espaçamento da hero no mobile */
+  .hero {
+    padding: 4rem 0;
+  }
+}
